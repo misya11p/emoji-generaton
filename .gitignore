@@ -1,5 +1,7 @@
+__pycache__
 .*
 !.gitignore
 !.gitkeep
 data
+docs
 joypixels-7.0-free
