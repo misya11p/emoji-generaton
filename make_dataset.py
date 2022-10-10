@@ -4,11 +4,7 @@ from tqdm import tqdm
 import argparse
 
 
-def main(
-    root: str = 'joypixels-7.0-free',
-    resolution: str = '128',
-    output_dir: str = 'data/images/'
-) -> None:
+def main(root, resolution, output_dir):
     assert resolution in ['32', '64', '128'], 'Resolution must be 32, 64 or 128'
     cat_dir = os.path.join(root, 'png/labeled/' + resolution)
     categories = os.listdir(cat_dir)
@@ -23,7 +19,7 @@ def main(
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Make dataset')
     parser.add_argument('--root', type=str, default='joypixels-7.0-free', help='Path to the downloaded directory. default: "joypixels-7.0-free"')
-    parser.add_argument('--resolution', type=str, default='128', help='The resolution of the images. default: 128')
+    parser.add_argument('--resolution', type=str, default='64', help='The resolution of the images. default: 128')
     parser.add_argument('--output_dir', type=str, default='data/images', help='Path to the output directory. default: "data/images"')
     args = parser.parse_args()
     main(**vars(args))
